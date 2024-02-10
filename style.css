@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
+
+:root{
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(90deg,hsl(37, 97%, 70%),hsl(329, 70%, 58%));
+    --YouTube: hsl(348, 97%, 39%);
+    /* for light theme */
+    --toggle: hsl(230, 22%, 74%);
+    --bodybg:hsl(0, 0%, 100%);
+    --cardbg: hsl(227, 47%, 96%);
+    --texth1: hsl(230, 17%, 14%);
+    --text: hsl(228, 12%, 44%);
+}
+
+html[data-theme='dark']{
+    --toggle: linear-gradient(90deg,hsl(210, 78%, 56%) 0%,hsl(146, 68%, 55%) 100%);
+    --bodybg: hsl(230, 17%, 14%);
+    --cardbg: hsl(228, 28%, 20%);
+    --texth1: hsl(0, 0%, 100%) ;
+    --text: hsl(228, 34%, 66%);
+}
+
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 5% 10%;
+    font-family: Inter;
+    background: var(--bodybg);
+}
+
+.togglebtn{
+    background-color: var(--toggle);
+    border-radius: 50%;margin-top: auto;
+    height: 1rem;width: 1em;
+}
+
+.heading{
+    font-size: 1.27rem;
+    font-weight: bold;
+    color: var(--texth1);
+}
+
+.totalfoll{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.togglediv{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    border-top: 1px solid #a3a1a1;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+.togglediv p{
+    font-size: 0.9rem;
+    color: var(--text);
+    align-self:center;
+    font-weight: bold;
+}
+
+input[type= 'checkbox']{
+    width: 0;height: 0;visibility: hidden;
+}
+
+.switchcont{
+    display: flex;
+}
+.switchcont label{
+    cursor: pointer;
+    width: 3rem;
+    height: 1.5rem;
+    background: var(--toggle);
+    border-radius: 100px;
+    position: relative;
+    align-self: center;
+}
+
+.switchcont label::after{
+    position: absolute;
+    content: '';
+    top: 0.23rem;
+    right: 0.35rem;
+    background: var(--bodybg);
+    width: 1.2rem ;
+    height: 1rem;
+    border-radius: 50%;
+    transition: .7s;
+}
+
+#switch:checked + label{
+    background: var(--toggle);
+}
+
+#switch:checked + label::after{
+    transform: translateX(-100%);
+    background: var(--bodybg);
+}
+
+.card{
+    background: var(--cardbg);
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    border-radius: 5px;
+    min-width: max-content;
+}
+
+.cardheader,.card img,.cardfooter{
+    display: flex;
+    align-self: center;
+    margin: .2rem;
+    font-weight: bold;
+}
+
+.cardbody{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cardbody h1{
+    font-size: 3rem;
+    margin: 0;
+    font-weight: bold;
+    color: var(--texth1);
+}
+
+.cardbody p{
+    margin: 0;
+    letter-spacing: .15rem;
+    color: var(--text);
+}
+
+.cardheader p{
+    color: var(--text);
+}
+
+.cardfooter img{
+    height: .4rem;
+    width: .6rem;
+}
+
+.cardfooter p{
+    font-size: small;
+    color: var(--LimeGreen);
+}
+
+.in .cardfooter p{
+    color: var(--BrightRed);
+}
+
+.overview h1{
+    font-size: 1.27rem;
+    font-weight: bold;
+    color: var(--texth1);
+}
+
+.box{
+    background: var(--cardbg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    min-width: max-content;
+}
+
+.box{
+    padding: 1rem;
+}
+
+.right{    
+    margin-top: .9rem;
+}
+
+.right img[alt="icon-facebook"]{
+    position: relative;
+    right: -40%;    
+}
+
+.right img[alt="icon-youtube"]{
+    position: relative;
+    right: -50%;   
+}
+.right img[alt="icon-instagram"]{
+    position: relative;
+    right: -60%;    
+}
+.right img[alt="icon-twitter"]{
+    position: relative;
+    right: -50%;    
+}
+.right div img{
+    height: .4rem;
+    width: .6rem;
+    margin: .2rem;
+}
+
+.right div{
+    display: flex;
+    align-items: center;
+}
+
+.tw .right p,.in .right p,.fb:nth-child(1) .right p{
+    color: var(--LimeGreen);
+}
+
+.fb:nth-child(2) .right p{
+    color: var(--BrightRed);
+}
+
+.yt .right p{
+    color: var(--BrightRed);
+}
+
+.fb .left p,.yt .left p, .in .left p, .tw .left p{
+    color: var(--text);
+    font-weight: bolder;
+}
+.left h1{
+    color: var(--texth1);
+}
+
+.card.fb{
+    border-top: 4px solid var(--Facebook);
+}
+.card.tw{
+    border-top: 4px solid var(--Twitter);
+}
+.card.yt{
+    border-top: 4px solid var(--YouTube);
+}
+.card.in{
+    border-top: 4px solid ;
+    border-image-source: var(--Instagram);
+    border-image-slice: 1;
+}
+
+@media only screen and (min-width:375px) {
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .togglediv{
+        border: none;
+    }
+    .togglediv p{
+        margin: .5rem;
+    }
+    .heading{
+        font-size: xx-large;
+    }
+    .totalfoll{
+        font-size: large;
+    }
+    .togglediv p{
+        font-size: large;
+    }
+    .overview h1{
+        font-size: x-large;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);  
+    }   
+    .boxes{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .box{
+        margin: 1rem;
+    }
+    .card{
+        margin: 1rem;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    .togglediv{
+        border: none;
+    }
+    .togglediv p{
+        margin: .5rem;
+    }
+    .heading{
+        font-size: xx-large;
+    }
+    .totalfoll{
+        font-size: large;
+    }
+    .togglediv p{
+        font-size: large;
+    }
+    .overview h1{
+        font-size: x-large;
+    }
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);  
+    }
+    .boxes{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .box{
+        margin: 1rem;
+    }
+    .card{
+        margin: 1rem;
+    }
+}
+
+html.transition *{
+    transition: all 900ms !important;
+    transition-delay: 0s !important;
+}
