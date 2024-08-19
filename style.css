@@ -251,7 +251,7 @@ input[type= 'checkbox']{
     border-image-slice: 1;
 }
 
-@media only screen and (min-width:293px) {
+@media only screen and (min-width:100px) {
     
     header{
         display: flex;
